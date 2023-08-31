@@ -8,7 +8,7 @@
 #include <string.h>
 #include <ctype.h>
 
-#define _POSIX_C SOURCE 2000809L
+#define _POSIX_C_SOURCE 200809L
 
 /**
  * struct stack_s - doubly linked list representation of stack (or queue).
@@ -27,12 +27,13 @@ typedef struct stack_s
 } stack_t;
 
 /**
- * struct bus_s - variables -args, file, line content.
- * @args: value.
- * @file: pointer to monty fie.
+ * struct bus_s - variables - args, file, line content.
+ * @args: argument value.
+ * @file: pointer to the monty fie.
  * @content: line content.
- * @lifi: flag change stack <-> queue.
- * Description: carries values through the program.
+ * @lifi: flag to change stack <-> queue.
+ *
+ * Description: structure to carries values through the program.
  */
 typedef struct bus_s
 {
@@ -56,6 +57,7 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
 char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
 ssize_t getstdin(char **lineptr, int file);
 char *clean_line(char *content);
